@@ -1,0 +1,23 @@
+:root {
+  /* 🎨 Colores principales (inspirados en su logo y fondo) */
+  --color-primario: #9e3ea6; /* Violeta profundo */
+  --color-secundario: #e67cbf; /* Rosa fucsia suave */
+  --color-acento: #f6c16d; /* Dorado cálido */
+  --color-fondo: #2e1a3d; /* Fondo violeta oscuro */
+  --color-claro: #f3e8f7; /* Rosa/lila muy claro para fondos suaves */
+  --color-texto: #f8f4f9;/* casi blanco, cálido */
+  --color-texto-secundario: #e3cde6; /* Texto suave */
+
+  /* 🌙 Sombras y bordes */
+  --sombra-suave: 0 4px 10px rgba(158, 62, 166, 0.3);
+  --borde-mistico: 2px dashed var(--color-acento);
+
+  /* 🌿 Otros */
+  --borde-radiante: radial-gradient(circle, #9e4b9a 0%, #2e1437 100%);
+  --sombra-suave: 0 4px 15px rgba(255, 179, 230, 0.3);
+  --transicion-suave: all 0.3s ease-in-out;
+
+  /* ✨ Tipografías */
+  --fuente-titulo: "Great Vibes", cursive;
+  --fuente-principal: "Poppins", sans-serif;
+}

@@ -1,0 +1,53 @@
+[
+    {
+      "front": {
+        "image": "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1743520308/Marisa%20Rodriguez/ChatGPT_Image_1_abr_2025_12_11_06_i9ci3r.png",
+        "title": "",
+        "description": ""
+      },
+      "back": {
+        "image": "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1743510983/Marisa%20Rodriguez/tarot_dkadoa.png",
+        "title": "Tarot",
+        "description": "Lenguaje simbólico que revela energía, guía y sabiduría interior.",
+        "action": {
+          "type": "external",
+          "route": "https://duoserendipia.com.ar/",
+          "label": "start with header"
+        }
+      }
+    },
+    {
+      "front": {
+        "image": "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1743521673/Marisa%20Rodriguez/Runas_i1oxwn.png",
+        "title": "",
+        "description": ""
+      },
+      "back": {
+        "image": "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1743510983/Marisa%20Rodriguez/runas_t1fl99.png",
+        "title": "Runas",
+        "description": "Símbolos ancestrales que canalizan mensajes, protección y poder interior.",
+        "action": {
+          "type": "external",
+          "route": "https://duoserendipia.com.ar/",
+          "label": "start with header"
+        }
+      }
+    },
+    {
+      "front": {
+        "image": "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1743522045/Marisa%20Rodriguez/Mesa-radionica_a9ory9.png",
+        "title": "",
+        "description": ""
+      },
+      "back": {
+        "image": "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1743510982/Marisa%20Rodriguez/MesaRadi%C3%B3nica_sgm5vv.png",
+        "title": "Mesa Radiónica",
+        "description": "Herramienta vibracional que armoniza, limpia y eleva la energía sutil.",
+        "action": {
+          "type": "external",
+          "route": "https://duoserendipia.com.ar/",
+          "label": "start with header"
+        }
+      }
+    }
+  ]

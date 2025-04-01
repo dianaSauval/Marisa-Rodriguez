@@ -1,0 +1,53 @@
+
+.homepage{
+  padding-top: 20px;
+}
+
+.titulo-principal {
+  text-align: center;
+  font-family: var(--fuente-titulo);
+  font-size: 3rem;
+  font-weight: 100;
+  color: var(--color-acento);
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-texto-secundario);
+  margin-bottom: 2rem;
+}
+
+.cursos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card-curso {
+  background-color: var(--color-claro);
+  border: var(--borde-mistico);
+  border-radius: 15px;
+  box-shadow: var(--sombra-suave);
+  width: 300px;
+  padding: 1.5rem;
+  color: var(--color-fondo);
+  transition: transform 0.2s ease;
+}
+
+.card-curso:hover {
+  transform: scale(1.03);
+}
+
+.curso-imagen {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.precio {
+  color: var(--color-primario);
+  font-weight: bold;
+  margin-top: 0.5rem;
+}

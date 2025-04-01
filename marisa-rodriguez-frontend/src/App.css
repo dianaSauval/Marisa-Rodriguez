@@ -1,42 +1,53 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --color-primario: #9e3ea6;
+  --color-secundario: #e67cbf;
+  --color-acento: #f6c16d;
+  --color-fondo: #2e1a3d;
+  --color-claro: #f3e8f7;
+  --color-texto: #ffffff;
+  --color-texto-secundario: #e3cde6;
+
+  --sombra-suave: 0 4px 10px rgba(158, 62, 166, 0.3);
+  --borde-mistico: 2px dashed var(--color-acento);
+
+  --fuente-titulo: 'Great Vibes', cursive;
+  --fuente-principal: 'Poppins', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background: radial-gradient(
+    circle,
+    #9e3ea6 0%,   /* Violeta profundo (centro) */
+    #2e1a3d 60%,  /* Fondo violeta oscuro */
+    #1a0e22 100%  /* Más oscuro en los bordes */
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  margin: 0;
+  min-height: 100vh;
+ 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.App {
+  min-height: 100vh;
+  background: var(--borde-radiante);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  transition: var(--transicion-suave);
 }
 
-.card {
-  padding: 2em;
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  color: var(--color-acento);
 }
 
-.read-the-docs {
-  color: #888;
+p {
+  color: var(--color-texto-secundario);
 }
