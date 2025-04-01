@@ -33,7 +33,7 @@ function Header({ isLoggedIn, isAdmin }) {
       {/* Navegación - desktop */}
       <nav className="header__nav">
         {enlaces.map((link) => (
-          <a key={link.href} href={link.href}>
+          <a key={link.href} href="#">
             {link.label}
           </a>
         ))}
