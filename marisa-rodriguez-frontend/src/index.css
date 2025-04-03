@@ -13,7 +13,7 @@
   --sombra-suave: 0 4px 15px rgba(255, 179, 230, 0.3);
   --borde-mistico: 2px dashed var(--color-acento);
   --borde-radiante: radial-gradient(circle, #9e4b9a 0%, #2e1437 100%);
-  --transicion-suave: all 0.3s ease-in-out;
+  --transicion-suave: all 0.5s ease-in-out;
 
   --fuente-titulo: "Great Vibes", cursive;
   --fuente-principal: "Poppins", sans-serif;

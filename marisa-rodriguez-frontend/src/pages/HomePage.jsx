@@ -17,7 +17,7 @@ console.log(theme.functions.linearGradient); // ✅ Debería dar una función
   return (
     <div className="homepage">
       <h1 className="titulo-principal">Marisa Rodríguez</h1>
-      <p className="subtitulo">Explorá tu camino interior ✨</p>
+      <p className="subtituloHome">Explorá tu camino interior ✨</p>
 
       {/* <div className="cursos-grid">
         {cursos.map((curso) => (

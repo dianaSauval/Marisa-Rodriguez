@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 // Material Kit 2 React components
 import MKBox from "../MKBox";
 import MKTypography from "../MKTypography";
+import { Link } from "react-router-dom";
 // import MKButton from "../../MKButton";
 
 function RotatingCard({
@@ -11,7 +12,7 @@ function RotatingCard({
   title,
   description,
   extraInfo,
-  description2 /* , action */,
+  description2 , action ,
 }) {
   return (
     <MKBox
@@ -90,9 +91,11 @@ function RotatingCard({
         </MKTypography>
         {/* Uncomment the following block if you want to use the action button */}
 
-   {/*      <MKBox width="50%" mt={4} mb={2} mx="auto">
-          <button>hola que tal</button>
-        </MKBox> */}
+        <MKBox width="50%" mt={4} mb={2} mx="auto">
+          <Link to={action.route}>
+            <button className="button-RotatingCard">Ver cursos</button>
+          </Link>
+        </MKBox>
       </MKBox>
     </MKBox>
   );
