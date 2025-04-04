@@ -1,6 +1,7 @@
 import { useCart } from "../context/CartContext";
 import "../assets/styles/pages/CarritoPage.css";
 import { Link } from "react-router-dom";
+import EmptyState from "../components/EmptyState/EmptyState";
 
 export default function CarritoPage() {
   const { carrito, removerDelCarrito, vaciarCarrito } = useCart();
@@ -15,7 +16,11 @@ export default function CarritoPage() {
       <h1>Tu Carrito</h1>
 
       {carrito.length === 0 ? (
-        <p className="carrito-vacio">Todavía no agregaste ningún curso 🌙</p>
+        <EmptyState
+        title="Aún no haz comprado ningún curso"
+        subtitle="Tu recorrido aún no comenzó... pero cada viaje empieza con un primer paso ✨"
+      />
+      
       ) : (
         <>
           <ul className="carrito-lista">

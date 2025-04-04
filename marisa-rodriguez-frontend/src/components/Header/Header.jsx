@@ -16,7 +16,7 @@ function Header({ isLoggedIn, isAdmin }) {
   const enlaces = [
     { label: "Inicio", href: "/" },
     { label: "Cursos", href: "/cursos" },
-    { label: "Clases en vivo", href: "/vivo" },
+    { label: "Clases en vivo", href: "/clases-en-vivo" },
     { label: "Contacto", href: "/contacto" },
     ...(isLoggedIn ? [{ label: "Mis cursos", href: "/mis-cursos" }] : []),
     ...(isLoggedIn && isAdmin

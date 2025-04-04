@@ -1,13 +1,14 @@
 import { useCart } from "../context/CartContext";
 import "../assets/styles/pages/CheckoutPage.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Cards from "react-credit-cards";
-import 'react-credit-cards/es/styles-compiled.css';
+import "react-credit-cards/es/styles-compiled.css";
+import useModalMensaje from "../hooks/useModalMensaje";
 
 export default function CheckoutPage() {
   const { carrito, vaciarCarrito } = useCart();
-  const navigate = useNavigate();
+  const { Modal, openModal } = useModalMensaje();
+
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -18,13 +19,33 @@ export default function CheckoutPage() {
     ciudad: "",
     provincia: "",
     codigoPostal: "",
-    tarjetaNumero: "",
-    tarjetaNombre: "",
-    tarjetaVencimiento: "",
-    tarjetaCVV: "",
-    focus: ""
+    number: "",
+    name: "",
+    expiry: "",
+    cvc: "",
+    focus: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+  
+    vaciarCarrito();
+  
+    openModal({
+      titulo: "¡Gracias por tu compra!",
+      subtitulo: "En breve recibirás un correo con acceso a tu curso ✨",
+    });
+  
+  };
+  
   const total = carrito.reduce((acc, curso) => {
     const precio = parseInt(curso.precio.replace(/\D/g, ""));
     return acc + (isNaN(precio) ? 0 : precio);
@@ -34,9 +55,12 @@ export default function CheckoutPage() {
     const { name, value } = e.target;
     let newValue = value;
 
-    if (name === "tarjetaNumero") newValue = value.replace(/[^0-9]/g, "").slice(0, 16);
-    if (name === "tarjetaVencimiento") newValue = value.replace(/[^0-9]/g, "").slice(0, 4);
-    if (name === "tarjetaCVV") newValue = value.replace(/[^0-9]/g, "").slice(0, 4);
+    if (name === "number") newValue = value.replace(/[^0-9]/g, "").slice(0, 16);
+    else if (name === "name") newValue = value.replace(/[^a-zA-Z\s]/g, "");
+    else if (name === "expiry")
+      newValue = value.replace(/[^0-9]/g, "").slice(0, 4);
+    else if (name === "cvc")
+      newValue = value.replace(/[^0-9]/g, "").slice(0, 3);
 
     setFormData((prev) => ({ ...prev, [name]: newValue }));
   };
@@ -45,19 +69,44 @@ export default function CheckoutPage() {
     setFormData((prev) => ({ ...prev, focus: e.target.name }));
   };
 
-  const formatExpiry = (raw) => {
+  const formatExpiry = (raw = "") => {
     const val = raw.replace(/[^0-9]/g, "").slice(0, 4);
     if (val.length >= 3) return val.slice(0, 2) + "/" + val.slice(2);
     return val;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Pedido confirmado:", { cursos: carrito, datos: formData });
-    vaciarCarrito();
-    alert("¡Gracias por tu compra! Simulamos un pago exitoso ✨");
-    navigate("/");
+  const validateForm = () => {
+    const newErrors = {};
+
+    Object.entries(formData).forEach(([key, value]) => {
+      if (!value.trim()) newErrors[key] = "Este campo es obligatorio.";
+    });
+
+    if (formData.number.length < 13)
+      newErrors.number = "El número debe tener entre 13 y 16 dígitos.";
+    if (!/^[a-zA-Z\s]+$/.test(formData.name))
+      newErrors.name = "El nombre solo debe contener letras y espacios.";
+    if (formData.cvc.length !== 3)
+      newErrors.cvc = "El CVV debe tener exactamente 3 números.";
+
+    return newErrors;
   };
+
+  const renderInput = (label, name, type = "text", placeholder = "") => (
+    <label>
+      {label}
+      <input
+        type={type}
+        name={name}
+        value={formData[name]}
+        onChange={handleInputChange}
+        onFocus={handleFocus}
+        className={errors[name] ? "input-error" : ""}
+        placeholder={placeholder}
+      />
+      {errors[name] && <div className="error-msg">{errors[name]}</div>}
+    </label>
+  );
 
   return (
     <div className="checkout-container">
@@ -67,86 +116,67 @@ export default function CheckoutPage() {
         <h2>Tu selección:</h2>
         <ul>
           {carrito.map((curso, index) => (
-            <li key={index}>{curso.titulo} — <span>{curso.precio}</span></li>
+            <li key={index}>
+              {curso.titulo} — <span>{curso.precio}</span>
+            </li>
           ))}
         </ul>
-        <p className="checkout-total">💰 Total: ${total.toLocaleString("es-AR")} ARS</p>
+        <p className="checkout-total">
+          💰 Total: ${total.toLocaleString("es-AR")} ARS
+        </p>
       </div>
 
       <div className="checkout-main">
         <div className="formulario-y-tarjeta">
           <form className="checkout-form" onSubmit={handleSubmit}>
             <h3>Datos personales</h3>
-            <label>Nombre completo<input type="text" name="nombre" required value={formData.nombre} onChange={handleInputChange} /></label>
-            <label>Email<input type="email" name="email" required value={formData.email} onChange={handleInputChange} /></label>
-            <label>Teléfono<input type="tel" name="telefono" required value={formData.telefono} onChange={handleInputChange} /></label>
-            <label>DNI / CUIT<input type="text" name="dni" required value={formData.dni} onChange={handleInputChange} /></label>
+            {renderInput("Nombre completo", "nombre")}
+            {renderInput("Email", "email", "email")}
+            {renderInput("Teléfono", "telefono", "tel")}
+            {renderInput("DNI / CUIT", "dni")}
 
             <h3>Dirección</h3>
-            <label>Calle y número<input type="text" name="direccion" required value={formData.direccion} onChange={handleInputChange} /></label>
-            <label>Ciudad<input type="text" name="ciudad" required value={formData.ciudad} onChange={handleInputChange} /></label>
-            <label>Provincia<input type="text" name="provincia" required value={formData.provincia} onChange={handleInputChange} /></label>
-            <label>Código Postal<input type="text" name="codigoPostal" required value={formData.codigoPostal} onChange={handleInputChange} /></label>
+            {renderInput("Calle y número", "direccion")}
+            {renderInput("Ciudad", "ciudad")}
+            {renderInput("Provincia", "provincia")}
+            {renderInput("Código Postal", "codigoPostal")}
 
-            <h3>Pago con tarjeta (simulado)</h3>
-            <label>Número de tarjeta
-              <input
-                type="text"
-                name="tarjetaNumero"
-                value={formData.tarjetaNumero}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                placeholder="1234 5678 9012 3456"
-                inputMode="numeric"
-              />
-            </label>
+            <div className="form-pago-tarjeta">
+              <div>
+                <h3>Pago con tarjeta (simulado)</h3>
+                {renderInput(
+                  "Número de tarjeta",
+                  "number",
+                  "text",
+                  "1234 5678 9012 3456"
+                )}
+                {renderInput(
+                  "Nombre del titular",
+                  "name",
+                  "text",
+                  "Nombre Apellido"
+                )}
+                {renderInput("Vencimiento (MM/AA)", "expiry", "text", "MM/AA")}
+                {renderInput("CVV", "cvc", "text", "123")}
+              </div>
 
-            <label>Nombre del titular
-              <input
-                type="text"
-                name="tarjetaNombre"
-                value={formData.tarjetaNombre}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                placeholder="Nombre Apellido"
-              />
-            </label>
+              <div className="tarjeta-preview">
+                <Cards
+                  number={formData.number}
+                  name={formData.name}
+                  expiry={formatExpiry(formData.expiry)}
+                  cvc={formData.cvc}
+                  focused={formData.focus}
+                />
+              </div>
+            </div>
 
-            <label>Vencimiento (MM/AA)
-              <input
-                type="text"
-                name="tarjetaVencimiento"
-                value={formatExpiry(formData.tarjetaVencimiento)}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                placeholder="MM/AA"
-              />
-            </label>
-
-            <label>CVV
-              <input
-                type="text"
-                name="tarjetaCVV"
-                value={formData.tarjetaCVV}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                placeholder="123"
-                inputMode="numeric"
-              />
-            </label>
-
-            <button type="submit" className="boton-confirmar">Confirmar compra</button>
+            <button type="submit" className="boton-confirmar">
+              Confirmar compra
+            </button>
           </form>
+          {Modal}
 
-          <div className="tarjeta-preview">
-            <Cards
-              number={formData.tarjetaNumero}
-              name={formData.tarjetaNombre}
-              expiry={formatExpiry(formData.tarjetaVencimiento)}
-              cvc={formData.tarjetaCVV}
-              focused={formData.focus}
-            />
-          </div>
         </div>
       </div>
     </div>

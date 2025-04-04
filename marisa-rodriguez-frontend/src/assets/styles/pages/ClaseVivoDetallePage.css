@@ -1,0 +1,118 @@
+.clase-detalle-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  box-shadow: var(--sombra-suave);
+  font-family: var(--fuente-principal);
+  color: var(--color-texto);
+}
+
+.detalle-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.detalle-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detalle-header h1 {
+  font-size: 3rem;
+  font-family: var(--fuente-titulo);
+  font-weight: 100;
+  color: var(--color-acento);
+  flex: 1;
+}
+
+.badge-vivo {
+  background-color: var(--color-acento);
+  color: var(--color-fondo);
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+
+.descripcion {
+    margin-top: 20px;
+  margin-bottom: 2rem;
+  color: var(--color-texto-secundario);
+  line-height: 1.6;
+}
+
+.detalle-fecha,
+.detalle-cupos {
+  font-size: 1rem;
+  color: var(--color-texto);
+  margin-bottom: 0.5rem;
+}
+
+.detalle-beneficios h3 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: 100;
+  color: var(--color-secundario);
+}
+
+.detalle-beneficios ul {
+    list-style: none;
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+  color: var(--color-texto-secundario);
+}
+
+.boton-inscripcion {
+  margin-top: 2rem;
+  background: var(--color-acento);
+  color: var(--color-fondo);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease, transform 0.5s ease 0.1s,
+    box-shadow 0.6s ease;
+}
+
+.boton-inscripcion:hover {
+  transform: scale(1.05);
+  background: var(--color-secundario);
+  color: var(--color-texto);
+}
+
+.volver-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--color-secundario);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.volver-link:hover {
+  text-decoration: underline;
+}
+
+.buttonsClaseDetalle {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .detalle-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .boton-inscripcion {
+    width: 100%;
+  }
+}

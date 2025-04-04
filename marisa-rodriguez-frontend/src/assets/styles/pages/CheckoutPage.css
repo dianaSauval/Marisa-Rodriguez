@@ -138,6 +138,31 @@
  .rccs {
    transform: scale(1.05);
  }
+
+ .form-pago-tarjeta{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: center;
+ }
+
+ /* Estilos para inputs con error */
+.input-error {
+  border: 2px solid var(--color-secundario);
+  box-shadow: 0 0 5px var(--color-acento);
+  background-color: rgba(255, 204, 230, 0.1);
+}
+
+/* Mensajes de error */
+.error-msg {
+  color: var(--color-secundario);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
  
  @media (max-width: 768px) {
     .formulario-y-tarjeta {

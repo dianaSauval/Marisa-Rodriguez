@@ -56,13 +56,13 @@ function RotatingCard({
         right={0}
         bottom={0}
         sx={{
-          backgroundColor: "rgba(46, 26, 61, 0.5)",
+          backgroundColor: "rgba(46, 26, 61, 0.9)",
           borderRadius: "8px",
         }}
       />
       <MKBox
         width="100%"
-        backgroundColor="rgba(46, 26, 61, 0.6)"
+        backgroundColor="rgba(46, 26, 61, 0.9)"
         borderRadius="8px"
         display="flex"
         flexDirection="column"

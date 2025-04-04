@@ -10,11 +10,11 @@ import TerapiasPage from "./pages/TerapiasPage";
 import TerapiasIntegrativasPage from "./pages/TerapiasIntegrativasPage";
 import CursosPage from "./pages/CursosPage";
 import CursoDetallePage from "./pages/CursoDetallePage";
-
-// ⬇️ Importá el contexto del carrito
 import { CartProvider } from "./context/CartContext";
 import CarritoPage from "./pages/CarritoPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import ClasesEnVivoPage from "./pages/ClasesEnVivoPage";
+import ClaseVivoDetallePage from "./pages/ClaseVivoDetallePage";
 
 function App() {
   const isLoggedIn = true;
@@ -32,7 +32,9 @@ function App() {
             <Route path="/terapias-de-luz" element={<TerapiasPage />} />
             <Route path="/terapias-integrativas" element={<TerapiasIntegrativasPage />} />
             <Route path="/cursos" element={<CursosPage />} />
+            <Route path="/clases-en-vivo" element={<ClasesEnVivoPage />} />
             <Route path="/cursosDetalle" element={<CursoDetallePage />} />
+            <Route path="/claseDetalle" element={<ClaseVivoDetallePage />} />
             <Route path="/carrito" element={<CarritoPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>

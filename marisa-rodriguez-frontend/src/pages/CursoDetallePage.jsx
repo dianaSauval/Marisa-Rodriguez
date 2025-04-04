@@ -2,15 +2,13 @@ import React from "react";
 import "../assets/styles/pages/CursoDetallePage.css";
 import { useCart } from "../context/CartContext";
 
+
 // Simulación de datos que podrían venir del backend
 const curso = {
   titulo: "Tarot Evolutivo para Principiantes",
   descripcionLarga: `El Tarot Evolutivo es mucho más que una herramienta predictiva: es un mapa simbólico del alma que nos invita a comprender nuestras emociones, decisiones, bloqueos y potenciales.
 
 En este curso para principiantes, te propongo un viaje profundo a través de los Arcanos Mayores, donde cada carta funciona como un espejo interno y un portal de transformación.
-
-Durante las clases, aprenderás a interpretar las cartas no desde el miedo ni el dogma, sino desde una mirada amorosa y reveladora que te permitirá conectar con tu intuición, tu sabiduría interna y la energía del momento presente.
-
 Este curso es ideal para quienes desean iniciarse en el mundo del Tarot desde un enfoque terapéutico y espiritual. No necesitás tener experiencia previa: vamos a construir juntas/os una base sólida, comprensible y transformadora para que el Tarot sea una herramienta de sanación, guía y expansión en tu vida cotidiana.`,
   duracion: "10 horas",
   nivel: "Inicial",
@@ -36,6 +34,7 @@ Este curso es ideal para quienes desean iniciarse en el mundo del Tarot desde un
 
 const CursoDetallePage = () => {
   const { agregarAlCarrito } = useCart();
+  
 
   return (
     <div className="curso-detalle-container">
@@ -114,7 +113,9 @@ const CursoDetallePage = () => {
         <blockquote>{curso.testimonio}</blockquote>
       </div>
     </div>
+ 
   );
+  
 };
 
 export default CursoDetallePage;
