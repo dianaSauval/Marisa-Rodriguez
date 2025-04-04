@@ -69,11 +69,11 @@ export default function CheckoutPage() {
     setFormData((prev) => ({ ...prev, focus: e.target.name }));
   };
 
-  const formatExpiry = (raw = "") => {
+/*   const formatExpiry = (raw = "") => {
     const val = raw.replace(/[^0-9]/g, "").slice(0, 4);
     if (val.length >= 3) return val.slice(0, 2) + "/" + val.slice(2);
     return val;
-  };
+  }; */
 
   const validateForm = () => {
     const newErrors = {};
@@ -161,13 +161,13 @@ export default function CheckoutPage() {
               </div>
 
               <div className="tarjeta-preview">
-                <CreditCard
+ {/*                <CreditCard
                   number={formData.number}
                   name={formData.name}
                   expiry={formatExpiry(formData.expiry)}
                   cvc={formData.cvc}
                   focused={formData.focus}
-                />
+                /> */}
               </div>
             </div>
 
