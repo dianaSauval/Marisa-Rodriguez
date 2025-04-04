@@ -13,7 +13,7 @@ export default function CarritoPage() {
 
   return (
     <div className="carrito-container">
-      <h1>Tu Carrito</h1>
+      <h1>Tu Carrito</h1>  
 
       {carrito.length === 0 ? (
         <EmptyState
