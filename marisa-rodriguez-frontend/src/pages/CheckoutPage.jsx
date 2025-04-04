@@ -1,7 +1,7 @@
 import { useCart } from "../context/CartContext";
 import "../assets/styles/pages/CheckoutPage.css";
 import { useState } from "react";
-import Cards from "react-credit-cards";
+import CreditCard from "react-credit-cards-2";
 import "react-credit-cards/es/styles-compiled.css";
 import useModalMensaje from "../hooks/useModalMensaje";
 
@@ -161,7 +161,7 @@ export default function CheckoutPage() {
               </div>
 
               <div className="tarjeta-preview">
-                <Cards
+                <CreditCard
                   number={formData.number}
                   name={formData.name}
                   expiry={formatExpiry(formData.expiry)}
