@@ -145,6 +145,31 @@
   transform: scale(1.05);
 }
 
+.badge-modalidad {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  text-align: center;
+  width: fit-content;
+  margin-top: 1rem;
+  margin-left: auto; /* 💫 Esto lo empuja a la derecha */
+  display: block; /* Asegura que respete el margin */
+}
+
+.badge-modalidad.vivo {
+  background: var(--color-secundario);
+  color: var(--color-fondo);
+  box-shadow: 0 0 6px rgba(230, 124, 191, 0.4);
+}
+
+.badge-modalidad.grabado {
+  background: var(--color-acento);
+  color: var(--color-fondo);
+  box-shadow: 0 0 6px rgba(246, 193, 109, 0.4);
+}
+
+
 /**    TAROT    **/
 
 /* 🎴 Capa con la imagen de fondo */
@@ -179,7 +204,8 @@
   );
   color: var(--color-fondo);
   padding: 0.4rem 1rem;
-  font-size: 0.75rem;
+  font-size: 0.58rem;
+  font-weight:900;
   border-radius: 1.5rem;
   box-shadow: 0 0 8px rgba(246, 193, 109, 0.4);
   margin: 0 auto 0.8rem auto; /* centrado + espacio abajo */
@@ -189,7 +215,7 @@
 
 /**    Terapias de Luz y Energía    **/
 
-.curso-card.luzYEnergia::before {
+.curso-card.luzYEnergia::before { 
   background-image: url("https://res.cloudinary.com/dkdhdy9e5/image/upload/v1743720215/Marisa%20Rodriguez/luz-energia-fondo_wgbjy0.png");
 }
 
