@@ -1,7 +1,6 @@
 import { useCart } from "../context/CartContext";
 import "../assets/styles/pages/CheckoutPage.css";
 import { useState } from "react";
-import CreditCard from "react-credit-cards-2";
 import "react-credit-cards/es/styles-compiled.css";
 import useModalMensaje from "../hooks/useModalMensaje";
 
