@@ -1,0 +1,141 @@
+.formulario-curso {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+    padding: 2rem;
+    background: var(--borde-radiante);
+    border-radius: 1.5rem;
+    box-shadow: var(--sombra-suave);
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    margin-top: 2rem;
+  }
+  
+  .formulario-curso h2 {
+    margin-bottom: 1.5rem;
+    color: var(--color-acento);
+    font-size: 3rem;
+    font-weight: 100;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  input[type="text"],
+  input[type="url"],
+  input[type="datetime-local"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 0.3rem;
+    border: 1px solid var(--color-secundario);
+    border-radius: 1rem;
+    background: var(--color-claro);
+    color: var(--color-fondo);
+    font-family: var(--fuente-principal);
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .ayuda-campo {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-texto-secundario);
+    margin-top: 0.2rem;
+  }
+  
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .botones-formulario {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .boton-guardar,
+  .boton-cancelar {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .boton-guardar {
+    background: var(--color-acento);
+    color: var(--color-fondo);
+  }
+  
+  .boton-cancelar {
+    background: #e67cbf;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .formulario-curso {
+      padding: 1.5rem;
+      border-radius: 1rem;
+    }
+  
+    .formulario-curso h2 {
+      font-size: 2.2rem;
+      text-align: center;
+    }
+  
+    .botones-formulario {
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+    }
+  
+    .boton-guardar,
+    .boton-cancelar {
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .formulario-curso {
+      padding: 1rem;
+    }
+  
+    .formulario-curso h2 {
+      font-size: 1.8rem;
+    }
+  
+    input[type="text"],
+    input[type="url"],
+    input[type="datetime-local"],
+    select,
+    textarea {
+      padding: 0.6rem;
+      font-size: 0.95rem;
+    }
+  
+    label {
+      font-size: 0.95rem;
+    }
+  
+    .ayuda-campo {
+      font-size: 0.75rem;
+    }
+  
+    .checkbox {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  

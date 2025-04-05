@@ -18,7 +18,7 @@ function Header({ isLoggedIn, isAdmin }) {
     { label: "Cursos", href: "/cursos" },
     { label: "Clases en vivo", href: "/clases-en-vivo" },
     { label: "Contacto", href: "/contacto" },
-    ...(isLoggedIn ? [{ label: "Mis cursos", href: "/mis-cursos" }] : []),
+    ...(isLoggedIn ? [{ label: "Mis cursos", href: "/misCursos" }] : []),
     ...(isLoggedIn && isAdmin
       ? [{ label: "Panel Admin", href: "/admin" }]
       : []),

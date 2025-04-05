@@ -74,6 +74,7 @@ export default function CursosPage() {
             📦 Incluyen videos, PDFs descargables y acceso progresivo a medida
             que avanzás.
           </li>
+          <li>📞 Asistencia personalizada por WhatsApp para despejar dudas</li>
         </ul>
       </section>
 

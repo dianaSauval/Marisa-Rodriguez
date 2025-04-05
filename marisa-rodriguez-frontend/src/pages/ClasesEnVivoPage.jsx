@@ -65,7 +65,7 @@ export default function ClasesEnVivoPage() {
         <ul>
           <li>🗓️ Cada clase tiene una fecha y horario específico.</li>
           <li>
-            🧑‍🏫 Se dictan por Zoom y se organizan desde un grupo de WhatsApp
+            🧑‍🏫 Se dictan por Google Meet y se organizan desde un grupo de WhatsApp
             exclusivo.
           </li>
           <li>

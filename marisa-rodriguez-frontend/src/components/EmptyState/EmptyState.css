@@ -25,8 +25,8 @@
   }
   
   .empty-title {
-    font-size: 3rem;
-    color: var(--color-secundario);
+    font-size: 2.6rem;
+    color: var(--color-acento);
     margin-bottom: 0.5rem;
     font-weight:100;
     font-family: var(--fuente-titulo);

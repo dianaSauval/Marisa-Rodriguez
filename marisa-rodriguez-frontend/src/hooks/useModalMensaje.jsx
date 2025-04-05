@@ -13,16 +13,21 @@ export default function useModalMensaje() {
     setIsClosing(false);
   };
 
-  const closeModal = () => {
+  const closeModal = ({ redirect = false, delay = 1000 } = {}) => {
     setIsClosing(true);
-    navigate("/")
+    setTimeout(() => {
+      setModalData(null); // cierra el modal visualmente
+      if (redirect) {
+        navigate("/");
+      }
+    }, delay);
   };
 
   const Modal = modalData ? (
     <ModalMensaje
       titulo={modalData.titulo}
       subtitulo={modalData.subtitulo}
-      onClose={closeModal}
+      onClose={() => closeModal()} // solo cierra sin redirigir
       isClosing={isClosing}
     />
   ) : null;

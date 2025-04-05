@@ -15,6 +15,10 @@ import CarritoPage from "./pages/CarritoPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ClasesEnVivoPage from "./pages/ClasesEnVivoPage";
 import ClaseVivoDetallePage from "./pages/ClaseVivoDetallePage";
+import ContactoPage from "./pages/ContactoPage";
+import MisCursosPage from "./pages/MisCursosPage";
+import PanelAdmin from "./pages/admin/PanelAdmin";
+import AdminLayout from "./pages/admin/AdminLayout";
 
 function App() {
   const isLoggedIn = true;
@@ -35,8 +39,10 @@ function App() {
             <Route path="/clases-en-vivo" element={<ClasesEnVivoPage />} />
             <Route path="/cursosDetalle" element={<CursoDetallePage />} />
             <Route path="/claseDetalle" element={<ClaseVivoDetallePage />} />
-            <Route path="/carrito" element={<CarritoPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/carrito" element={<CarritoPage />} />           
+            <Route path="/contacto" element={<ContactoPage />} />
+            <Route path="/misCursos" element={<MisCursosPage />} />
+            <Route path="/admin" element={<AdminLayout />} />
           </Routes>
         </div>
       </Router>
